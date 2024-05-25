@@ -7,7 +7,7 @@ const swagger = require('./swagger');
 const {auth_router} = require('./auth/auth');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 const databaseUrl = process.env.DATABASE_URL;
 
 
