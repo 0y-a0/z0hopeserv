@@ -8,7 +8,7 @@ const settingRoutes = require('./routes/settingRoutes')
 const helpOptionsRoutes = require('./routes/helpOptionsRoutes');
 const helpfulInfoRoutes = require('./routes/helpfulInfoRoutes');
 const adminsRoutes = require('./routes/adminsRoutes');
-const imageRoute = require('./routes/imageRoute');
+
 const {verify_token} = require('../auth/auth')
 
 router.get('/get-all-pets',  petRoutes.getAllPets);
@@ -45,8 +45,7 @@ router.post('/add-helpful-info', verify_token(['super-admin', 'admin']), helpful
 router.put('/update-helpful-info/:id', verify_token(['super-admin', 'admin']), helpfulInfoRoutes.updateHelpfulInfo);
 router.delete('/delete-helpful-info/:id', verify_token(['super-admin', 'admin']), helpfulInfoRoutes.deleteHelpOption);
 
-router.post('/upload-pet-images', verify_token(['super-admin', 'admin']), imageRoute.mutlerArray, imageRoute.uploadPetImage);
-router.post('/upload-contact-image', verify_token(['super-admin', 'admin']), imageRoute.mutlerSingle, imageRoute.uploadContactImage);
+
 
 router.get('/get-all-admins', adminsRoutes.getAllAdmins);
 router.get('/get-admin/:id', adminsRoutes.getAdminById);
